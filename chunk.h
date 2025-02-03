@@ -19,6 +19,8 @@ void initChunk(Chunk* chunk) {
     chunk->code = NULL;
 }
 
+void freeChunk(Chunk* chunk);
+
 void writeChunk(Chunk* chunk, uint8_t byte) {
     if (chunk->capacity > chunk->count + 1) {
         int oldCapacity = chunk->capacity;
