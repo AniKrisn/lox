@@ -3,20 +3,21 @@
 
 #include "common.h"
 
+// one-byte operation code
 typedef enum {
     OP_RETURN,
-} OpCode;
+} OpCode; 
 
 typedef struct {
-    int count;
-    int capacity;
-    uint8_t* code;
+    int count; // num of bytes currently in chunk
+    int capacity; // total number of bytes allocated for the chunk 
+    uint8_t* code; // pointer to actual array of bytes 
 } Chunk;
 
 void initChunk(Chunk* chunk) {
     chunk->count = 0;
     chunk->capacity = 0;
-    chunk->code = NULL;
+    chunk->code = NULL; // don't point to non-valid memory
 }
 
 void freeChunk(Chunk* chunk) {

@@ -1,6 +1,7 @@
 #include "common.h"
 #include "memory.h"
-#include "chunk.c"
+#include "chunk.h"
+#include "debug.h"
 
 int main(int argc, const char* argv) {
     Chunk chunk;
