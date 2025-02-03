@@ -1,0 +1,18 @@
+test chunk (disassembler stage):
+    1. main function starts, creates a chunk
+    2. initChunk sets empty values, ready to store data
+    3. writeChunk called with OP_RETURN
+        chunk capacity increase
+        opcode value placed at chunk->code[0] and chunk->count becomes 1
+    4. disassembleChunk called
+        prints header "== test chunk =="
+        calls disassembleInstruction at offset 0 (think of this as index of code[])
+        value at chunk->code[0] is retrieved, which is OP_RETURN, switch statement --> simpleInstruction prints OP_RETURN
+        offset incremented and loop ends
+    5. freeChunk called, cleans up allocated memory
+
+Values
+    a Value is a basic unit of data that the VM manipulates during execution
+    just like chunks, values are stored in a dynamic array because: unknown quantity at compile-time, efficient memory management, reusability of the pattern
+    just like chunks, we have functions to init, write and free ValueArrays
+
