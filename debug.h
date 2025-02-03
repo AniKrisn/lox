@@ -10,8 +10,10 @@ static int simpleInstruction(const char* name, int offset) {
 }
 
 int disassembleInstruction(Chunk* chunk, int offset) {
+    // zero-padded 4-digit format
     printf("%04d ", offset);
 
+    // retrieve instruction (a byte) from the chunk
     uint8_t instruction = chunk->code[offset];
     switch (instruction) {
         case OP_RETURN:

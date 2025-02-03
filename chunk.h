@@ -26,6 +26,7 @@ void freeChunk(Chunk* chunk) {
     initChunk(chunk); // zero out fields, leaving chunk in a well-defined empty state
 }
 
+// write a byte into the chunk, grow chunk capacity if required
 void writeChunk(Chunk* chunk, uint8_t byte) {
     if (chunk->capacity < chunk->count + 1) {
         int oldCapacity = chunk->capacity;
