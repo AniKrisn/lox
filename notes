@@ -24,9 +24,6 @@ Values
 
 
 
-
-
-
 learnings:
 - i got a "mutliple redefinition" error when i defined a function in a .h file. the reason is because i use that .h in multiple .c files
     makes a ton of sense! this is why we just declare the function in the .h file, and why we compile all the .c files
