@@ -7,7 +7,8 @@
 
 // one-byte operation code
 typedef enum {
-    OP_RETURN,
+    OP_CONSTANT, // to load + execute constants
+    OP_RETURN, // to return
 } OpCode; 
 
 typedef struct {
