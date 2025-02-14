@@ -18,6 +18,9 @@ Values
 
 
 
+# how does the return thing work? 
+    > gets pushed onto stack
+        line 57 vm.c
 
 
 
