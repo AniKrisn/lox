@@ -8,6 +8,7 @@
 // one-byte operation code
 typedef enum {
     OP_CONSTANT, // to load + execute constants
+    OP_NEGATE, 
     OP_RETURN, // to return
 } OpCode; 
 

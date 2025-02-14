@@ -53,6 +53,9 @@ static InterpretResult run() {
                 push(constant);
                 break;
             }
+            case OP_NEGATE: {
+                push(-pop()); // takes, negates value, pushes back onto stack. simple!
+            }
             case OP_RETURN: {
                 printValue(pop());
                 printf("\n");
