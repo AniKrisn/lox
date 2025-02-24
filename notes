@@ -28,6 +28,24 @@ Values
 
 
 learnings:
-- i got a "mutliple redefinition" error when i defined a function in a .h file. the reason is because i use that .h in multiple .c files
+1. i got a "mutliple redefinition" error when i defined a function in a .h file. the reason is because i use that .h in multiple .c files
     makes a ton of sense! this is why we just declare the function in the .h file, and why we compile all the .c files
     .c files refer to .h, and the .c files that use those functions get it from the .h -- so cool!
+
+2. BINARY_OP macro.
+    First, we use a macro here because macros are expanded inline by the preprocessor, meaning there's no function-call overhead. VM loop is performance critical.
+
+    expanded inline by preprocessor: macro's content gets directly substituted into the place where the macro is called.
+
+    that's why we use the do {} while (0) pattern.
+
+    without it, the substitution would be as follows, which would lead to if statement error:
+
+        if (condition)
+        double b = pop();
+    double a = pop();
+    push(a + b);
+    else
+        doOtherThing();
+
+3. returned values in C have same type as the function 
