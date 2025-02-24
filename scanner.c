@@ -131,12 +131,13 @@ static Token number() {
     return makeToken(TOKEN_NUMBER);
 }
 
+static TokenType identifierType();
 static Token identifier() {
     while (isAlpha(peek()) || isDigit(peek())) advance();
     return makeToken(identifierType());
 }
 
-static Token identifierType() {
+static TokenType identifierType() {
     switch (scanner.start[0]) {
         case 'a': return checkKeyword(1, 2, "nd", TOKEN_AND);
         case 'c': return checkKeyword(1, 4, "lass", TOKEN_CLASS);
@@ -171,8 +172,6 @@ static Token identifierType() {
     return TOKEN_IDENTIFIER;
 
 }
-
-
 
 Token scanToken() {
     skipWhitespace();
